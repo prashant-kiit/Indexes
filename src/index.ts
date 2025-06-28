@@ -1,3 +1,4 @@
+// RAM
 import { Users, User } from "./data";
 
 const buildPrimaryIndex = (Users: User[], key: keyof User) => {
