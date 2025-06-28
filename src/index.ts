@@ -48,7 +48,7 @@ const getUsersByName = (name: string) => {
 
 const main = () => {
     const users = getUsersById("3");
-    const usersByName = getUsersByName("Prashant")
+    const usersByName = getUsersByName("Rahul Roy")
     console.log("users", users);
     console.log("usersByName", usersByName);
 };
