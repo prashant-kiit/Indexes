@@ -16,17 +16,41 @@ const buildPrimaryIndex = (Users: User[], primarykey: keyof User) => {
     return primaryIndex;
 };
 
-const primaryIndexOnUsersByName = buildPrimaryIndex(Users, "id");
+const buildSecondaryIndex = (primaryIndexOnUsersById: Record<string, number[]>, secondarykey: keyof User) => {
+    const secondaryIndex: Record<string, string[]> = {};
 
-const getUsersById = (name: string) => {
-    const recordPointers = primaryIndexOnUsersByName[name] || [];
+    Users.forEach((user) => {
+        const k = String(user[secondarykey]);
+        if (!secondaryIndex[k]) {
+            secondaryIndex[k] = [];
+        }
+        secondaryIndex[k].push(String(user.id));
+    });
+    console.log(secondaryIndex)
+
+    return secondaryIndex;
+};
+
+const primaryIndexOnUsersById = buildPrimaryIndex(Users, "id");
+const secondaryIndexOnUsersByName = buildSecondaryIndex(primaryIndexOnUsersById, "name");
+
+const getUsersById = (id: string) => {
+    const recordPointers = primaryIndexOnUsersById[id] || [];
     const users = recordPointers.map((index) => Users[index]);
+    return users;
+};
+
+const getUsersByName = (name: string) => {
+    const recordPointers = secondaryIndexOnUsersByName[name] || [];
+    const users = recordPointers.map((primarykey) => Users[primaryIndexOnUsersById[primarykey][0]]);
     return users;
 };
 
 const main = () => {
     const users = getUsersById("3");
+    const usersByName = getUsersByName("Prashant")
     console.log("users", users);
+    console.log("usersByName", usersByName);
 };
 
 main();
