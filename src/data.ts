@@ -1,28 +1,30 @@
 // Storage
 export type User = {
+    id: number;
     name: string;
     address: string;
 };
 
 export const Users: User[] = [
-    { name: "Prashant", address: "Bihar" },
-    { name: "Prashant", address: "Delhi" },
-    { name: "Ravi Sharma", address: "Mumbai" },
-    { name: "Sneha Patel", address: "Ahmedabad" },
-    { name: "Karan Mehta", address: "Chandigarh" },
-    { name: "Neha Joshi", address: "Pune" },
-    { name: "Prashant", address: "Lucknow" },
-    { name: "Pooja Singh", address: "Jaipur" },
-    { name: "Rahul Roy", address: "Kolkata" },
-    { name: "Divya Nair", address: "Kochi" },
-    { name: "Anjali Verma", address: "Hyderabad" },
-    { name: "Suresh Kumar", address: "Chennai" },
-    { name: "Meena Das", address: "Guwahati" },
-    { name: "Vikram Jain", address: "Bhopal" },
-    { name: "Farhan Ali", address: "Noida" },
-    { name: "Ritu Sharma", address: "Nagpur" },
-    { name: "Tarun Bansal", address: "Indore" },
-    { name: "Nikita Rao", address: "Vishakhapatnam" },
-    { name: "Arjun Kapoor", address: "Thane" },
-    { name: "Prashant", address: "Varanasi" }
+    { id: 1, name: "Prashant", address: "Bihar" },
+    { id: 2, name: "Prashant", address: "Delhi" },
+    { id: 3, name: "Ravi Sharma", address: "Mumbai" },
+    { id: 4, name: "Sneha Patel", address: "Ahmedabad" },
+    { id: 5, name: "Karan Mehta", address: "Chandigarh" },
+    { id: 6, name: "Neha Joshi", address: "Pune" },
+    { id: 7, name: "Prashant", address: "Lucknow" },
+    { id: 8, name: "Pooja Singh", address: "Jaipur" },
+    { id: 9, name: "Rahul Roy", address: "Kolkata" },
+    { id: 10, name: "Divya Nair", address: "Kochi" },
+    { id: 11, name: "Anjali Verma", address: "Hyderabad" },
+    { id: 12, name: "Suresh Kumar", address: "Chennai" },
+    { id: 13, name: "Meena Das", address: "Guwahati" },
+    { id: 14, name: "Vikram Jain", address: "Bhopal" },
+    { id: 15, name: "Farhan Ali", address: "Noida" },
+    { id: 16, name: "Ritu Sharma", address: "Nagpur" },
+    { id: 17, name: "Tarun Bansal", address: "Indore" },
+    { id: 18, name: "Nikita Rao", address: "Vishakhapatnam" },
+    { id: 19, name: "Arjun Kapoor", address: "Thane" },
+    { id: 20, name: "Prashant", address: "Varanasi" }
 ];
+
