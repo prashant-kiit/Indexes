@@ -7,4 +7,7 @@ Data Structures and Database Indexes
 // Non Clustered Index
 // Dense Index
 // Sparse Indes
-// 
+// Block Pointer
+// Record Pointer
+// Block of Block Pointer
+// Block of Record pointer
