@@ -51,6 +51,34 @@ const main = () => {
     const usersByName = getUsersByName("Rahul Roy")
     console.log("users", users);
     console.log("usersByName", usersByName);
+
+    // Use Tree to make Index (Tree is an Object from Class)
+    const rootNode = new Node()
+    rootNode.ref1.ref1.ref2
+    rootNode.ref2.ref1
+    rootNode.ref3.ref1.ref2
+
+    // Use Map to make Index (Map is an Object from Class)
+    const rootMapper : Record<any, any[]> = {};
+    rootMapper["rootKey1"] = ["refKey1"]
+    rootMapper["rootKey2"] = ["refKey2"]
+    const intermediateMapper : Record<any, any[]> = {};
+    intermediateMapper["refKey1"] = ["refKey3"] 
+    intermediateMapper["refKey2"] = ["refKey4"]
+    const leafMapper : Record<any, any[]> = {};
+    leafMapper["refKey3"] = ["value1"]
+    leafMapper["refKey4"] = ["value2"]
 };
 
 main();
+
+class Node {
+    public ref1 = new Node()
+    public key1 = ""
+    public ref2 = new Node()
+    public key2 = ""
+    public ref3 = new Node()
+    public key3 = ""
+}
+
+
