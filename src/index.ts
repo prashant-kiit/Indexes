@@ -32,8 +32,10 @@ const buildSecondaryIndex = (primaryIndexOnUsersById: Record<string, number[]>, 
     return secondaryIndex;
 };
 
-const primaryIndexOnUsersById = buildPrimaryIndex(Users, "id");
-const secondaryIndexOnUsersByName = buildSecondaryIndex(primaryIndexOnUsersById, "name");
+let primaryIndexOnUsersById = buildPrimaryIndex(Users, "id");
+let secondaryIndexOnUsersByName = buildSecondaryIndex(primaryIndexOnUsersById, "name");
+
+
 
 const getUsersById = (id: string) => {
     const recordPointers = primaryIndexOnUsersById[id] || [];
@@ -48,9 +50,20 @@ const getUsersByName = (name: string) => {
     return users;
 };
 
+const postUser = (user: User) => {
+    Users.push(user);
+    primaryIndexOnUsersById = buildPrimaryIndex(Users, "id");
+    secondaryIndexOnUsersByName = buildSecondaryIndex(primaryIndexOnUsersById, "name");
+}
+
 const main = () => {
+    postUser({
+        id: 30,
+        name: "Pickachu",
+        address: "Wonderland"
+    })
+    const usersByName = getUsersByName("Pickachu")
     const users = getUsersById("3");
-    const usersByName = getUsersByName("Rahul Roy")
     console.log("users", users);
     console.log("usersByName", usersByName);
 };
